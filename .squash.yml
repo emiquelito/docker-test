@@ -21,7 +21,7 @@ deployments:
       - API Products:
           group_id: api
           scripts:
-            - sleep 4; ls -la              
+            - sleep 5; ls -la              
       - ShoppingCart Tests:
           group_id: app
           depends_on_group: api
