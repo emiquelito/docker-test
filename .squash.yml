@@ -13,7 +13,7 @@ deployments:
       - API Base Tests:
           group_id: api
           scripts:
-            - sleep 11; ls -la
+            - sleep 2; ls -la
       - API Entities:
           group_id: api
           scripts:
@@ -21,7 +21,7 @@ deployments:
       - API Products:
           group_id: api
           scripts:
-            - sleep 5; ls -la              
+            - sleep 7; ls -la              
       - ShoppingCart Tests:
           group_id: app
           depends_on_group: api
