@@ -4,10 +4,14 @@ deployments:
     copy_files:
       - ~/.ssh/id_rsa ~/code/keys/
       - ~/.ssh/id_rsa.pub ~/code/keys/
-    environment:
-      TEST_VAL=42
+    install:
+      - docker build .
+      - docker-compose up -d
+    filename:
+      ./docker-compose.yml
+    context_path:
+      ./
     ready_wait: 120
-    success_response_check_url: test--,/about
     subdomain_port_mapping:
       - test:80
       - test--test:81
