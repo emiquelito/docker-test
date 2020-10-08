@@ -4,9 +4,6 @@ deployments:
     copy_files:
       - ~/.ssh/id_rsa ~/code/keys/
       - ~/.ssh/id_rsa.pub ~/code/keys/
-    install:
-      - docker build .
-      - docker-compose up -d
     filename:
       ./docker-compose.yml
     context_path:
