@@ -1,15 +1,11 @@
 deployments:
   default:
     vm_size: 1G
-    copy_files:
-      - ~/.ssh/id_rsa ~/code/keys/
-      - ~/.ssh/id_rsa.pub ~/code/keys/
-    filename:
-      ./docker-compose.yml
-    pre_launch:
-      - target: stuff-service
-        command: run
-        options: "{target} bash -c 'echo 111 && echo 222 && echo 333333'"
+    install:
+      - cp ~/.ssh/id_rsa ~/code/keys/
+      - cp ~/.ssh/id_rsa.pub ~/code/keys/ 
+      - docker build .
+      - docker-compose up -d
     ready_wait: 120
     subdomain_port_mapping:
       - test:80
