@@ -6,8 +6,10 @@ deployments:
       - ~/.ssh/id_rsa.pub ~/code/keys/
     filename:
       ./docker-compose.yml
-    context_path:
-      ./
+    pre_launch:
+      - target: stuff-service
+        command: run
+        options: "{target} bash -c 'echo 111 && echo 222 && echo 333333'"
     ready_wait: 120
     subdomain_port_mapping:
       - test:80
