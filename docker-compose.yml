@@ -7,3 +7,4 @@ services:
     environment:
       - TEST_VAL
       - DYNDEPLOY_DOMAIN
+      - SQUASH_CUSTOM_VAR1
