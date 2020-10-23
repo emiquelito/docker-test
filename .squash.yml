@@ -3,6 +3,7 @@ deployments:
     dockerimage: python:3.6.1-onbuild
     build_steps:
       - apt-get update && apt-get install -y libssl-dev build-essential
+      - RUN bash -c "curl -sL https://deb.nodesource.com/setup_10.x | bash -"
       - pip install setuptools pip
       - cd /code
       - pip install -r requirements.txt
