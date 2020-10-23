@@ -1,14 +1,12 @@
 deployments:
-  default:
-    vm_size: 1G
-    install:
-      - cp ~/.ssh/id_rsa ~/code/keys/
-      - cp ~/.ssh/id_rsa.pub ~/code/keys/ 
-      - docker build .
-      - docker-compose up -d
-    ready_wait: 120
-    subdomain_port_mapping:
-      - test:80
-      - test--test:81
-      - another-test:8000
-      - and--another-test:8000
+  MyApp:
+    dockerimage: python:3.6.1-onbuild
+    build_steps:
+      - apt-get update && apt-get install -y libssl-dev build-essential
+      - pip install setuptools pip
+      - cd /code
+      - pip install -r requirements.txt
+    launch_steps:
+      - cd /code
+      - python server.py
+
