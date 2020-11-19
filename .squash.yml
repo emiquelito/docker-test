@@ -1,6 +1,7 @@
 deployments:
   MyApp:
     dockerimage: python:3.6.1-onbuild
+    always_build_images: true
     build_steps:
       - apt-get update && apt-get install -y libssl-dev build-essential
       - pip install setuptools pip
